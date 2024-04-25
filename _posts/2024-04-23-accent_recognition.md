@@ -15,6 +15,7 @@ I am learning french at the moment and one of the things I would like to improve
 I searched online and Mozilla have a project called Mozilla Common Voice which have free to use datasets of people speaking in various languages link is here [Mozilla Common Voice](https://commonvoice.mozilla.org/en/datasets). Under the dataset tab I searched for english and french datasets and downloaded around 1Gb dataset for english and a 2Gb data set for french.
 
 ~["Mozilla commons voice dataset"](/images/blog_2024_04_23_accent_recognition/mozilla_common_voice_dataset.png)
+~["Mozilla commons voice dataset"](/images/logo.png)
 
 I extracted the dataset into a folder on my computer. 
 
@@ -71,7 +72,7 @@ Using ffmpeg I converted the english and french .mp3 files to .wav files. After 
 
 An example spectrogram I got from one of the .wav files is shown below. Note if yours looks like a bunch of horizontal lines instead of vertical, your audio file is probably dual channel and you'll need to convert it to single channel before creating the spectrogram.
 
-!["Example spectrogram of audio recording"](/images/spectrogram_example.png)
+!["Example spectrogram of audio recording"](/images/blog_2024_04_23_accent_recognition/spectrogram_example.png)
 
 Once your here you should have two folders one containing all the spectrograms of the french audio and one with the english audio.
 
