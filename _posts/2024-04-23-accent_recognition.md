@@ -81,25 +81,25 @@ Once your here you should have two folders one containing all the spectrograms o
 
 I made all the spectrograms on my laptop but this doesn't have a GPU so I used one of the lab computers at my universtity that has a GPU to help speed up the training time. Below are the screenshots of my jupyter notebook that contains all the code I used to traing the model
 
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img1.png)
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img2.png)
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img3.png)
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img4.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img1.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img2.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img3.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img4.png)
 
 Now I am creating the model using fast.ai library. This is my first time doing anything deep learning related so I don't anything about what's going on under the hood but from what I heard, the fast.ai function picks all the settings for you to more or less get a pretty good result for what you need so I just followed their examples online.
 
 I am also setting the batch size to 256 here to speed up the training time. The last thing I am doing is showing some samples in the batch to verify that it has the right images
 
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img5.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img5.png)
 
 Next thing to do is train the model. Again this is something more or less handled by fast.ai, you just call the function and it does it for you. I chose to 25 epochs. If you look at epoch 21 you'll see it has the lowest valid loss which is what we are looking for (or so I was told). For the most accurate model I think you would go back and retrain the model using 21 instead of 25 but I just kept it with 25.
 
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img6.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img6.png)
 
 The next thing to do is print out how well the model did. Looking at the images of which ones it got confused on doesn't really help us with spectrgrams because I can't tell from looking at them which ones are french audio and which ones are english audio so that's not all the useful. The confusion matrix was interesting though as it showed that when validating the model it got most of it right. I have no idea what patterns it's picking up in the images but it's certainly picking up on something!
 
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img7.png)
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img8.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img7.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img8.png)
 
 ## Results
 
@@ -107,13 +107,15 @@ The last thing to do is test the model with some real data. I have the audio boo
 
 As you can below it labelled them all correctly which was promosing although I didn notice it wasn't very confident when labelling the 'good' and 'ok' spectrograms as french. This isn't a problem on the 'ok' spectrogram because my best french accent isn't very french but on the 'good' one I thought it was a bit odd it had such a weak confidence for it even though if you listened to the recoding it is 100% french without a doubt.
 
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img9.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img9.png)
 
 Given the first test I did showed promise I went and recorded some more samples of good, ok and bad pronunication of the french language, made the spectrograms and then got the model to classify the accent. Below are the results.
 
 You can see that with more test samples that the model started to make a some errors but on the whole it does seem to be getting the general gist of it.
 
-![""](/images/blog_2024_04_23_accent_recognition/notebook_img10.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img10.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img11.png)
+![](/images/blog_2024_04_23_accent_recognition/notebook_img12.png)
 
 
 ## Conclusion and thoughts
