@@ -14,7 +14,7 @@ I am learning french at the moment and one of the things I would like to improve
 
 I searched online and Mozilla have a project called Mozilla Common Voice which have free to use datasets of people speaking in various languages link is here [Mozilla Common Voice](https://commonvoice.mozilla.org/en/datasets). Under the dataset tab I searched for english and french datasets and downloaded around 1Gb dataset for english and a 2Gb data set for french.
 
-~["Mozilla commons voice dataset"](/images/blog_2024_04_23_accent_recognition/mozilla_common_voice_dataset.png)
+!["Mozilla commons voice dataset"](/images/blog_2024_04_23_accent_recognition/mozilla_common_voice_dataset.png)
 
 I extracted the dataset into a folder on my computer. 
 
