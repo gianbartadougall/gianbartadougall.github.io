@@ -1,16 +1,20 @@
 # Accent classification for improving accents in foreign languages using fast.ai and resnet18
 
+---
+
 1. TOC
 {:toc}
 
 ## Introduction
 I am learning french at the moment and one of the things I would like to improve is my pronunciation. The problem is that it's hard to get feedback when you are practicing by yourself. If there was a computer program where you can input your self speaking and it would tell you whether the accent was french or not, then that would be good feedback. So the purpose of this model is to try take in audio recordings of me speaking french and to classify whether the accent was french or english.
 
+{% include info.html text="I'm testing this with french and english but you should be able to do it within any language provided you have the data" %}
+
 ## Data Collection
 
-I searched online and Mozilla have a project called Mozilla Common Voice which have free to use datasets of people speaking in various languages link is here [links](https://commonvoice.mozilla.org/en/datasets). Under the dataset tab I searched for english and french datasets and downloaded around 1Gb dataset for english and a 2Gb data set for french.
+I searched online and Mozilla have a project called Mozilla Common Voice which have free to use datasets of people speaking in various languages link is here [Mozilla Common Voice](https://commonvoice.mozilla.org/en/datasets). Under the dataset tab I searched for english and french datasets and downloaded around 1Gb dataset for english and a 2Gb data set for french.
 
-~[](/images/blog_2024_04_23_accent_recognition/mozilla_common_voice_dataset.png "Mozilla commons voice dataset")
+~["Mozilla commons voice dataset"](/images/blog_2024_04_23_accent_recognition/mozilla_common_voice_dataset.png)
 
 I extracted the dataset into a folder on my computer. 
 
@@ -67,7 +71,7 @@ Using ffmpeg I converted the english and french .mp3 files to .wav files. After 
 
 An example spectrogram I got from one of the .wav files is shown below. Note if yours looks like a bunch of horizontal lines instead of vertical, your audio file is probably dual channel and you'll need to convert it to single channel before creating the spectrogram.
 
-![](/images/spectrogram_example.png "Example spectrogram of audio recording")
+!["Example spectrogram of audio recording"](/images/spectrogram_example.png)
 
 Once your here you should have two folders one containing all the spectrograms of the french audio and one with the english audio.
 
@@ -87,12 +91,12 @@ I am also setting the batch size to 256 here to speed up the training time. The 
 
 Next thing to do is train the model. Again this is something more or less handled by fast.ai, you just call the function and it does it for you. I chose to 25 epochs. If you look at epoch 21 you'll see it has the lowest valid loss which is what we are looking for (or so I was told). For the most accurate model I think you would go back and retrain the model using 21 instead of 25 but I just kept it with 25.
 
-![](/images/notebook_img6.png "")
+![](/images/notebook_img6.png)
 
 The next thing to do is print out how well the model did. Looking at the images of which ones it got confused on doesn't really help us with spectrgrams because I can't tell from looking at them which ones are french audio and which ones are english audio so that's not all the useful. The confusion matrix was interesting though as it showed that when validating the model it got most of it right. I have no idea what patterns it's picking up in the images but it's certainly picking up on something!
 
-![](/images/notebook_img7.png "")
-![](/images/notebook_img8.png "")
+![](/images/notebook_img7.png)
+![](/images/notebook_img8.png)
 
 ## Results
 
@@ -100,13 +104,14 @@ The last thing to do is test the model with some real data. I have the audio boo
 
 As you can below it labelled them all correctly which was promosing although I didn notice it wasn't very confident when labelling the 'good' and 'ok' spectrograms as french. This isn't a problem on the 'ok' spectrogram because my best french accent isn't very french but on the 'good' one I thought it was a bit odd it had such a weak confidence for it even though if you listened to the recoding it is 100% french without a doubt.
 
-![](/images/notebook_img9.png "")
+![](/images/notebook_img9.png)
 
 Given the first test I did showed promise I went and recorded some more samples of good, ok and bad pronunication of the french language, made the spectrograms and then got the model to classify the accent. Below are the results.
 
 You can see that with more test samples that the model started to make a some errors but on the whole it does seem to be getting the general gist of it.
 
-![](/images/notebook_img10.png "")
+![](/images/notebook_img10.png)
+
 
 ## Conclusion and thoughts
 
