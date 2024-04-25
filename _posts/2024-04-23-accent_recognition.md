@@ -82,8 +82,11 @@ Once your here you should have two folders one containing all the spectrograms o
 I made all the spectrograms on my laptop but this doesn't have a GPU so I used one of the lab computers at my universtity that has a GPU to help speed up the training time. Below are the screenshots of my jupyter notebook that contains all the code I used to traing the model
 
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img1.png)
+
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img2.png)
+
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img3.png)
+
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img4.png)
 
 Now I am creating the model using fast.ai library. This is my first time doing anything deep learning related so I don't anything about what's going on under the hood but from what I heard, the fast.ai function picks all the settings for you to more or less get a pretty good result for what you need so I just followed their examples online.
@@ -99,6 +102,7 @@ Next thing to do is train the model. Again this is something more or less handle
 The next thing to do is print out how well the model did. Looking at the images of which ones it got confused on doesn't really help us with spectrgrams because I can't tell from looking at them which ones are french audio and which ones are english audio so that's not all the useful. The confusion matrix was interesting though as it showed that when validating the model it got most of it right. I have no idea what patterns it's picking up in the images but it's certainly picking up on something!
 
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img7.png)
+
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img8.png)
 
 ## Results
@@ -114,7 +118,9 @@ Given the first test I did showed promise I went and recorded some more samples 
 You can see that with more test samples that the model started to make a some errors but on the whole it does seem to be getting the general gist of it.
 
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img10.png)
+
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img11.png)
+
 ![](/images/blog_2024_04_23_accent_recognition/notebook_img12.png)
 
 
